@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity 0.8.15;
 
-contract Staking {
+contract OptimizedStaking {
     struct Stake {
         uint256 amount;
         address buyer;
@@ -14,7 +14,7 @@ contract Staking {
     function stakeEther(uint256 duration) external payable {
         require(
             duration == 1 days || duration == 7 days || duration == 30 days,
-            "not a valid duration"
+            'not a valid duration'
         );
     }
 

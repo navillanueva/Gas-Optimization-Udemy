@@ -2,7 +2,7 @@
 
 pragma solidity 0.8.15;
 
-contract Vote {
+contract OptimizedVote {
     struct Voter {
         uint8 vote;
         bool voted;

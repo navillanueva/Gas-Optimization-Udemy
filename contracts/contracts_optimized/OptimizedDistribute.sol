@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity 0.8.15;
 
-contract Distribute {
+contract OptimizedDistribute {
     address[4] public contributors;
     uint256 public createTime;
 
@@ -13,7 +13,7 @@ contract Distribute {
     function distribute() external {
         require(
             block.timestamp > createTime + 1 weeks,
-            "cannot distribute yet"
+            'cannot distribute yet'
         );
 
         uint256 amount = address(this).balance / 4;
