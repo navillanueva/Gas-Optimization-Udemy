@@ -24,10 +24,13 @@ contract OptimizedVote {
 
     function vote(uint8 _proposal) external {
         require(!voters[msg.sender].voted, 'already voted');
-        voters[msg.sender].vote = _proposal;
-        voters[msg.sender].voted = true;
-
-        proposals[_proposal].voteCount += 1;
+        Voter memory aux = voters[msg.sender];
+        aux.vote = _proposal;
+        aux.voted = true;
+        // no need to check for overflow with this operation
+        unchecked {
+            proposals[_proposal].voteCount += 1;
+        }
     }
 
     function getVoteCount(uint8 _proposal) external view returns (uint8) {

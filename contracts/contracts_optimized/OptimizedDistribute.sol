@@ -5,6 +5,8 @@ contract OptimizedDistribute {
     address[4] public contributors;
     uint256 public createTime;
 
+    event created(uint timestamp);
+
     constructor(address[4] memory _contributors) payable {
         contributors = _contributors;
         createTime = block.timestamp;
